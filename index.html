@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我的项目展示网站</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei", Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        nav {
+            background-color: #2a5db0;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #1d3f6f;
+        }
+        main {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 60px;
+        }
+        h2 {
+            color: #4a90e2;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .project {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            width: calc(50% - 10px);
+            padding: 15px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .project img {
+            width: 100%;
+            border-radius: 5px;
+            height: 160px;
+            object-fit: cover;
+        }
+        .project-title {
+            margin: 12px 0 8px;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        .project-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+        footer {
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 0.9em;
+        }
+        @media screen and (max-width: 700px) {
+            .projects {
+                flex-direction: column;
+            }
+            .project {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        欢迎来到我的项目展示网站
+    </header>
+    <nav>
+        <a href="#about">关于我</a>
+        <a href="#projects">项目展示</a>
+        <a href="#contact">联系方式</a>
+    </nav>
+    <main>
+        <section id="about">
+            <h2>关于我</h2>
+            <p>你好！我是[你的名字]，一名热爱编程和技术的开发者。这个网站展示了我参与和完成的一些项目，希望你喜欢！</p>
+        </section>
+        <section id="projects">
+            <h2>项目展示</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="https://via.placeholder.com/400x160?text=项目1" alt="项目1截图" />
+                    <div class="project-title">项目名称1</div>
+                    <div class="project-desc">项目简介：这是我完成的一个很棒的项目，涉及网页开发和数据处理。</div>
+                </div>
+                <div class="project">
+                    <img src="https://via.placeholder.com/400x160?text=项目2" alt="项目2截图" />
+                    <div class="project-title">项目名称2</div>
+                    <div class="project-desc">项目简介：这是另一个项目，使用了机器学习技术，实现了很酷的功能。</div>
+                </div>
+                <!-- 你可以复制上面这个块多加项目 -->
+            </div>
+        </section>
+        <section id="contact">
+            <h2>联系方式</h2>
+            <p>欢迎通过以下方式联系我：</p>
+            <ul>
+                <li>邮箱: your.email@example.com</li>
+                <li>电话: 123-4567-8901</li>
+                <li>GitHub: <a href="https://github.com/你的用户名" target="_blank">github.com/你的用户名</a></li>
+                <li>微信: your_wechat_id</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 你的名字 版权所有
+    </footer>
+</body>
+</html>
