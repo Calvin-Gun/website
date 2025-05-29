@@ -4,61 +4,88 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Opposites Attract - About Me</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    .fade-in {
-      animation: fadeIn 2s ease-in-out;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+
+    header {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-top: 20px;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .half {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .left {
+      background-color: white;
+      color: black;
+    }
+
+    .right {
+      background-color: black;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+    }
+
+    a {
+      color: blue;
+    }
+
+    @media (min-width: 600px) {
+      .section {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
-<body class="font-sans">
+<body>
 
-  <!-- Hero Section with Animated Image -->
-  <section class="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-black to-white text-center text-white">
-    <img src="https://i.pravatar.cc/200" alt="Profile Photo" class="w-40 h-40 rounded-full border-4 border-white shadow-xl fade-in" />
-    <h1 class="text-5xl font-bold mt-6 mix-blend-difference fade-in">Hi, I'm Alex</h1>
-    <p class="text-xl mt-4 mix-blend-difference fade-in">Where calm meets chaos. Where introvert meets extrovert.</p>
-  </section>
+  <header>
+    <h1>Hi, I'm Alex</h1>
+    <p>A little bit calm. A little bit chaotic.</p>
+    <img src="https://i.pravatar.cc/150" alt="Profile Photo">
+  </header>
 
-  <!-- Split Bio Section -->
-  <section class="grid grid-cols-1 md:grid-cols-2">
-    <div class="bg-white text-black p-10">
-      <h2 class="text-3xl font-bold mb-4">The Quiet Side</h2>
-      <p class="text-lg">I love peaceful mornings, journaling, long solo hikes, and classical music. My mind finds clarity in stillness and reflection.</p>
+  <div class="section">
+    <div class="half left">
+      <h2>Calm Side</h2>
+      <p>I love quiet mornings, journaling, and peaceful walks in nature.</p>
     </div>
-    <div class="bg-black text-white p-10">
-      <h2 class="text-3xl font-bold mb-4">The Wild Side</h2>
-      <p class="text-lg">But I also thrive at concerts, spontaneous travel, late-night conversations, and chaotic brainstorming. Creativity lives in the noise.</p>
+    <div class="half right">
+      <h2>Chaotic Side</h2>
+      <p>I also enjoy concerts, random road trips, and crazy creative ideas at 2am.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- Interests Section -->
-  <section class="bg-gradient-to-b from-gray-100 to-gray-300 py-20 px-8 text-center">
-    <h2 class="text-4xl font-bold mb-8">What I Love</h2>
-    <div class="flex flex-wrap justify-center gap-8 text-lg">
-      <span class="bg-black text-white px-4 py-2 rounded-full">Philosophy</span>
-      <span class="bg-white text-black px-4 py-2 rounded-full">Tech Innovation</span>
-      <span class="bg-black text-white px-4 py-2 rounded-full">Solitude</span>
-      <span class="bg-white text-black px-4 py-2 rounded-full">Parties</span>
-      <span class="bg-black text-white px-4 py-2 rounded-full">Poetry</span>
-      <span class="bg-white text-black px-4 py-2 rounded-full">Memes</span>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="bg-black text-white py-20 px-8 text-center">
-    <h2 class="text-4xl font-bold mb-6">Let's Connect</h2>
-    <p class="mb-6">Whether you're introverted, extroverted, or a little bit of both—I'd love to hear from you.</p>
-    <a href="mailto:alex@example.com" class="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-300">Email Me</a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white text-center py-6 text-sm text-gray-500">
-    © 2025 Alex | Made with contrast in mind.
+  <footer>
+    <p>Contact me at <a href="mailto:alex@example.com">alex@example.com</a></p>
   </footer>
+
 </body>
 </html>
