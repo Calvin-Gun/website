@@ -1,118 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Opposites Attract - About Me</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fdfdfd;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fancy Self Introduction</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(15, 32, 39, 0.85);
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    z-index: 999;
+    box-shadow: 0 0 15px #0ff;
+  }
+
+  nav {
+    max-width: 1000px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  nav a {
+    color: #0ff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #0ff;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #0ff;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  main {
+    flex-grow: 1;
+    margin-top: 80px;
+    max-width: 900px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .profile-pic {
+    flex: 0 0 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: url('https://i.pravatar.cc/300') center/cover no-repeat;
+    box-shadow:
+      0 0 20px #0ff,
+      0 0 40px #0ff,
+      0 0 80px #0ff;
+    animation: glowPulse 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glowPulse {
+    0% {
+      box-shadow:
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff;
     }
-
-    header {
-      background: linear-gradient(to right, #111, #eee);
-      color: #fff;
-      padding: 50px 20px;
-      text-align: center;
+    100% {
+      box-shadow:
+        0 0 20px #0ff,
+        0 0 40px #0ff,
+        0 0 80px #0ff;
     }
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
+  .intro-text {
+    flex: 1 1 400px;
+    color: #d0f0ff;
+  }
+
+  .intro-text h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    background: linear-gradient(90deg, #0ff, #6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .intro-text .typed-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #a0eaff;
+    height: 30px;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #0ff;
+    animation: blinkCaret 0.7s step-end infinite;
+  }
+
+  @keyframes blinkCaret {
+    50% {
+      border-color: transparent;
     }
+  }
 
-    header p {
-      font-style: italic;
-      margin-top: 10px;
-    }
+  .about-me {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccf6ff;
+    max-width: 600px;
+  }
 
-    .profile-img {
-        margin-top: 20px;
-        width: 80%;
-        max-width: 500px;
-        height: auto;
-        border: 4px solid white;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+  .skills-section {
+    margin-bottom: 4rem;
+  }
 
+  .skills-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0ff;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0ff;
+    display: inline-block;
+  }
 
-    .section {
-      display: flex;
+  .skill {
+    margin-bottom: 1rem;
+  }
+
+  .skill-name {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #adefff;
+  }
+
+  .skill-bar {
+    width: 100%;
+    height: 14px;
+    background: #223344;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, #0ff, #6ff);
+    width: 0;
+    border-radius: 10px;
+    transition: width 1.5s ease-in-out;
+  }
+
+  .contact-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0ff;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .social-icons a {
+    color: #0ff;
+    font-size: 2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    color: #6ff;
+    transform: scale(1.3);
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    color: #66aaff88;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+
+  @media (max-width: 700px) {
+    .intro-section {
       flex-direction: column;
     }
 
-    .block {
-      flex: 1;
-      padding: 40px;
-      text-align: center;
-      transition: all 0.3s ease;
+    .profile-pic {
+      margin-bottom: 1.5rem;
     }
-
-    .block:hover {
-      transform: scale(1.02);
-    }
-
-    .light {
-      background-color: #ffffff;
-      color: #333333;
-    }
-
-    .dark {
-      background-color: #222222;
-      color: #eeeeee;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background-color: #f0f0f0;
-      text-align: center;
-      padding: 20px;
-    }
-
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (min-width: 600px) {
-      .section {
-        flex-direction: row;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>I am Calvin. Nice to meet you!!!</h1>
-    <p>"Do you like coding?"</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Atlantic_near_Faroe_Islands.jpg" alt="Atlantic Ocean" class="profile-img">
-  </header>
+<header>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <div class="section">
-    <div class="block light">
-      <h2>☀ Hobbies</h2>
-      <p>I like playing pool and running</p>
+<main>
+  <section class="intro-section" id="home">
+    <div class="profile-pic" aria-label="Profile Picture"></div>
+    <div class="intro-text">
+      <h1>Hi, I'm Alex Chen</h1>
+      <div class="typed-text" id="typed-text"></div>
+      <p class="about-me" id="about">
+        Passionate software engineer and creative problem solver. I love turning ideas into reality through code. With experience in web development, AI, and system design, I strive to build clean, efficient, and user-friendly applications.
+      </p>
     </div>
-    <div class="block dark">
-      <h2>⚡ Fun fact</h2>
-      <p>I drink iced coffee in winter and hot tea in summer — because why not flip the rules?</p>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">JavaScript / ES6+</div>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="90%"></div>
+      </div>
     </div>
-  </div>
+    <div class="skill">
+      <div class="skill-name">Python</div>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="85%"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">HTML & CSS</div>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="95%"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">React</div>
+      <div class="skill-bar">
+        <div class="skill-level" data-level="75%"></div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>Hope to see you!!!</p>
-  </footer>
+  <section class="contact-section" id="contact">
+    <h2>Get in Touch</h2>
+    <div class="social-icons">
+      <a href="https://github.com/yourprofile" aria-label="GitHub" target="_blank" rel="noopener noreferrer" title="GitHub">
+        <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.54 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 012-.27 7.66 7.66 0 012 .27c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.324 0 .725 0h14.55c.4 0 .725.513.725 1.146v13.708c0 .633-.325 1.146-.725 1.146H.725A.723.723 0 010 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.21a1.39 1.39 0 111.397-1.39 1.39 1.39 0 01-1.397 1.39zm4.908 8.21V9.359c0-.824-.295-1.386-1.034-1.386-.564 0-.9.38-1.05.746-.054.132-.067.317-.067.503v3.438h2.401V9.359c0-.824-.295-1.386-1.034-1.386-.564 0-.9.38-1.05.746-.054.132-.067.317-.067.503v3.438h2.401z"/></svg>
+      </a>
+      <a href="mailto:youremail@example.com" aria-label="Email" title="Email">
+        <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 012-2h12a2 2 0 012 2v1.586l-7 4.666-7-4.666V4zm0 2.8v5.2a2 2 0 002 2h12a2 2 0 002-2V6.8l-7 4.666-7-4.666z"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
 
+<footer>
+  &copy; 2025 Alex Chen. All rights reserved.
+</footer>
+
+<script>
+  // Typing animation for intro text
+  const typedTextElement = document.getElementById('typed-text');
+  const phrases = [
+    "Software Engineer",
+    "AI Enthusiast",
+    "Web Developer",
+    "Tech Innovator"
+  ];
+  let phraseIndex = 0;
+  let letterIndex = 0;
+  let currentText = '';
+  let isDeleting = false;
+  const typingSpeed = 100;
+  const erasingSpeed = 50;
+  const delayBetweenPhrases = 2000;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    if (!isDeleting) {
+      currentText = currentPhrase.slice(0, letterIndex + 1);
+      typedTextElement.textContent = currentText;
+      letterIndex++;
+
+      if (letterIndex === currentPhrase.length) {
+        isDeleting = true;
+        setTimeout(type, delayBetweenPhrases);
+        return;
+      }
+    } else {
+      currentText = currentPhrase.slice(0, letterIndex - 1);
+      typedTextElement.textContent = currentText;
+      letterIndex--;
+
+      if (letterIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, isDeleting ? erasingSpeed : typingSpeed);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    type();
+
+    // Animate skill bars
+    const skillLevels = document.querySelectorAll('.skill-level');
+    skillLevels.forEach(el => {
+      const level = el.getAttribute('data-level');
+      setTimeout(() => {
+        el.style.width = level;
+      }, 500);
+    });
+  });
+
+</script>
 </body>
 </html>
